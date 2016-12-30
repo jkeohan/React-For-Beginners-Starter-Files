@@ -21,16 +21,17 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    // this runs right before the app is rendered
     this.ref = base.syncState(`${this.props.params.storeId}/fishes`, { 
            context: this,
       state: 'fishes'
     });
+    // check if there is any order in localStorage
   }
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
-
 
   addFish(fish){
     //update our state
@@ -66,7 +67,7 @@ class App extends React.Component {
               }
             </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order fishes={this.state.fishes} order={this.state.order}/>
         <Inventory addFish = {this.addFish} loadSamples = {this.loadSamples}/>
       </div>
     )
