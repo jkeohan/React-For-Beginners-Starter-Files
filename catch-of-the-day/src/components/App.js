@@ -54,7 +54,7 @@ class App extends React.Component {
     const timestamp = Date.now();
     fishes[`fish-${timestamp}`] = fish;
     // set state
-    this.setState({ fishes }) // could do fishes: fishes
+    this.setState({ fishes: fishes }) // could do fishes: fishes
   }
 
   loadSamples() {
@@ -68,6 +68,7 @@ class App extends React.Component {
     order[key] = order[key] + 1 || 1 // update order
     this.setState({order:order}) // update state
   }
+  
   render() {
     return (
       <div className="catch-of-the-day">
